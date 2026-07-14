@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nena Cardenas — Virtual Assistant & E-commerce Operations</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0b0b0b;
+  --white:#ffffff;
+  --g50:#fafaf9;
+  --g100:#f5f5f4;
+  --g200:#e8e6e3;
+  --g300:#d4d0ca;
+  --g400:#a8a49e;
+  --g600:#6b6760;
+  --g800:#2c2c2a;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);line-height:1.6;font-size:15px}
+.page{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid var(--g200)}
+.nav-name{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--black)}
+.nav-links{display:flex;gap:8px}
+.btn-blk{background:var(--black);color:var(--white);border:none;border-radius:4px;padding:8px 18px;font-size:13px;cursor:pointer;text-decoration:none;font-family:var(--sans);font-weight:500}
+.btn-out{background:none;color:var(--black);border:1px solid var(--g300);border-radius:4px;padding:7px 14px;font-size:13px;cursor:pointer;text-decoration:none;font-family:var(--sans)}
+
+/* HERO */
+.hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--g200);display:grid;grid-template-columns:1fr 130px;gap:2rem;align-items:start}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g600);border:1px solid var(--g300);border-radius:20px;padding:4px 14px;margin-bottom:1.25rem}
+.hero h1{font-family:var(--serif);font-size:34px;font-weight:normal;line-height:1.2;margin-bottom:1rem;color:var(--black)}
+.hero h1 em{font-style:italic;color:var(--g600)}
+.hero-sub{font-size:14px;color:var(--g600);line-height:1.8;max-width:440px;margin-bottom:1.75rem}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.photo-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--g200)}
+.photo-caption{font-size:10px;color:var(--g400);letter-spacing:.04em;text-transform:uppercase;text-align:center}
+
+/* TRUST BAR */
+.trust-bar{display:flex;border-bottom:1px solid var(--g200)}
+.trust-item{flex:1;padding:1.25rem 0;border-right:1px solid var(--g200);padding-right:1rem;margin-right:1rem}
+.trust-item:last-child{border-right:none;margin-right:0}
+.trust-num{font-size:22px;font-weight:700;color:var(--black);line-height:1;margin-bottom:3px}
+.trust-label{font-size:11px;color:var(--g600);text-transform:uppercase;letter-spacing:.05em}
+
+/* SECTIONS */
+section{padding:2.5rem 0;border-bottom:1px solid var(--g200)}
+.eyebrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g400);margin-bottom:.875rem}
+.sh{font-family:var(--serif);font-size:24px;font-weight:normal;margin-bottom:.625rem;line-height:1.3;color:var(--black)}
+.ssub{font-size:14px;color:var(--g600);line-height:1.75;max-width:520px;margin-bottom:1.75rem}
+
+/* SERVICES */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--g200);border:1px solid var(--g200);border-radius:8px;overflow:hidden}
+.sc{background:var(--white);padding:1.25rem}
+.sc.feat{background:var(--black)}
+.sc.full{grid-column:1/-1;background:var(--g50)}
+.snum{font-size:10px;color:var(--g400);letter-spacing:.08em;font-weight:600;margin-bottom:.5rem;text-transform:uppercase}
+.sc.feat .snum{color:var(--g400)}
+.stitle{font-size:14px;font-weight:700;margin-bottom:.4rem;color:var(--black)}
+.sc.feat .stitle{color:var(--white)}
+.sdesc{font-size:12px;color:var(--g600);line-height:1.65;margin-bottom:.625rem}
+.sc.feat .sdesc{color:#b0aba4}
+.sbadge{display:inline-block;font-size:10px;letter-spacing:.05em;text-transform:uppercase;background:var(--black);color:var(--white);padding:3px 10px;border-radius:20px}
+.sc.feat .sbadge{background:var(--white);color:var(--black)}
+.sc.full .sbadge{background:var(--black);color:var(--white)}
+.sex{margin-top:.625rem;padding-top:.625rem;border-top:1px solid var(--g200);font-size:11px;color:var(--g600);font-style:italic;line-height:1.65}
+.sc.feat .sex{border-top-color:#2c2c2a;color:#9b9590}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--g200);border:1px solid var(--g200);border-radius:8px;overflow:hidden;margin-top:1.5rem}
+.mc{background:var(--white);padding:1rem;text-align:center}
+.mnum{font-size:20px;font-weight:700;color:var(--black)}
+.mlabel{font-size:11px;color:var(--g600);margin-top:2px;line-height:1.4}
+
+/* PORTFOLIO */
+.portfolio-tabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.ptab{font-size:12px;padding:6px 14px;border:1px solid var(--g300);border-radius:20px;background:none;cursor:pointer;font-family:var(--sans);color:var(--g600);transition:all .15s}
+.ptab.active,.ptab:hover{background:var(--black);color:var(--white);border-color:var(--black)}
+.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pcard{border:1px solid var(--g200);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .15s}
+.pcard:hover{border-color:var(--g400)}
+.pcard-img{height:160px;background:var(--g100);overflow:hidden;position:relative}
+.pcard-body{padding:.875rem 1rem}
+.pcard-title{font-size:13px;font-weight:700;margin-bottom:3px;color:var(--black)}
+.pcard-desc{font-size:12px;color:var(--g600);line-height:1.55}
+.pcard-tag{font-size:10px;color:var(--g400);text-transform:uppercase;letter-spacing:.05em;margin-top:6px}
+
+/* DASHBOARD MOCKUP */
+.db-mock{width:100%;height:160px;background:#f8f8f7;padding:10px;font-family:var(--sans)}
+.db-row{display:flex;gap:5px;margin-bottom:6px}
+.db-stat{flex:1;background:var(--white);border:1px solid var(--g200);border-radius:4px;padding:5px 7px}
+.db-stat-n{font-size:12px;font-weight:700;color:var(--black)}
+.db-stat-l{font-size:8px;color:var(--g600)}
+.db-bar-wrap{background:var(--white);border:1px solid var(--g200);border-radius:4px;padding:7px}
+.db-bar-label{font-size:9px;color:var(--g800);margin-bottom:4px;font-weight:600}
+.db-bars{display:flex;align-items:flex-end;gap:4px;height:50px}
+.db-bar{flex:1;border-radius:2px 2px 0 0}
+.db-bar-x{display:flex;gap:4px;margin-top:3px}
+.db-bar-xl{flex:1;font-size:8px;color:var(--g600);text-align:center}
+
+/* SPREADSHEET MOCKUP */
+.ss-mock{width:100%;height:160px;background:#f8f8f7;padding:8px;overflow:hidden}
+.ss-table{width:100%;border-collapse:collapse;font-size:9px}
+.ss-table th{background:var(--black);color:var(--white);padding:4px 5px;text-align:left;font-weight:600;font-size:8px}
+.ss-table td{padding:3px 5px;border-bottom:1px solid var(--g200);color:var(--g800)}
+.ss-table tr:nth-child(even) td{background:var(--white)}
+.ss-table tr:nth-child(odd) td{background:var(--g50)}
+.ss-green{color:#166534;font-weight:600}
+.ss-red{color:#991b1b;font-weight:600}
+.ss-badge{display:inline-block;background:#dcfce7;color:#14532d;border-radius:10px;padding:1px 6px;font-size:8px;font-weight:600}
+.ss-badge.warn{background:#fef9c3;color:#713f12}
+
+/* EMAIL MOCKUP */
+.em-mock{width:100%;height:160px;background:#f8f8f7;padding:8px;overflow:hidden}
+.em-list{display:flex;flex-direction:column;gap:3px}
+.em-row{display:flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--g200);border-radius:4px;padding:5px 7px}
+.em-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.em-from{font-size:9px;font-weight:700;color:var(--black);width:68px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.em-subject{font-size:9px;color:var(--g600);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.em-time{font-size:8px;color:var(--g400);flex-shrink:0}
+.em-tag{font-size:8px;padding:1px 6px;border-radius:10px;flex-shrink:0;font-weight:600}
+.em-tag.urgent{background:#fee2e2;color:#7f1d1d}
+.em-tag.done{background:#dcfce7;color:#14532d}
+.em-tag.follow{background:#fef9c3;color:#713f12}
+
+/* PRODUCT LISTING MOCKUP */
+.pl-mock{width:100%;height:160px;background:#f8f8f7;padding:8px;overflow:hidden}
+.pl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.pl-item{background:var(--white);border:1px solid var(--g200);border-radius:4px;padding:5px}
+.pl-img{height:44px;background:var(--g100);border-radius:3px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.pl-name{font-size:8px;font-weight:700;color:var(--black);margin-bottom:2px;line-height:1.3}
+.pl-price{font-size:9px;color:var(--black);font-weight:700}
+.pl-stock{font-size:8px;color:var(--g600)}
+.pl-badge{display:inline-block;font-size:7px;background:#dcfce7;color:#14532d;border-radius:8px;padding:1px 5px;margin-top:2px;font-weight:600}
+.pl-badge.warn{background:#fef9c3;color:#713f12}
+
+/* REPORT MOCKUP */
+.rp-mock{width:100%;height:160px;background:#f8f8f7;padding:8px;overflow:hidden}
+.rp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.rp-title-text{font-size:10px;font-weight:700;color:var(--black)}
+.rp-date{font-size:8px;color:var(--g600)}
+.rp-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:6px}
+.rp-kpi{background:var(--white);border:1px solid var(--g200);border-radius:3px;padding:4px 6px;text-align:center}
+.rp-kpi-n{font-size:12px;font-weight:700;color:var(--black)}
+.rp-kpi-l{font-size:8px;color:var(--g600)}
+.rp-trend{font-size:8px;margin-top:1px;color:#166534;font-weight:600}
+.rp-table{width:100%;border-collapse:collapse;font-size:8px}
+.rp-table th{background:var(--black);color:var(--white);padding:3px 5px;text-align:left}
+.rp-table td{padding:3px 5px;border-bottom:1px solid var(--g200);color:var(--g800)}
+
+/* CAMPAIGN MOCKUP */
+.cv-mock{width:100%;height:160px;background:#1a1a2e;padding:10px;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.cv-promo{flex:1;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:6px;display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
+.cv-promo-tag{font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.85);margin-bottom:3px}
+.cv-promo-h{font-size:13px;font-weight:700;line-height:1.2;color:#ffffff}
+.cv-promo-cta{font-size:8px;margin-top:5px;background:rgba(255,255,255,.25);border-radius:10px;padding:2px 8px;display:inline-block;color:#ffffff}
+.cv-promo-price{font-size:24px;font-weight:700;color:#ffffff;text-align:right}
+.cv-promo-sub{font-size:8px;color:rgba(255,255,255,.8);text-align:right}
+.cv-small{display:flex;gap:6px}
+.cv-sm-card{flex:1;background:#252547;border-radius:4px;padding:6px 8px}
+.cv-sm-tag{font-size:7px;color:rgba(255,255,255,.6);margin-bottom:2px}
+.cv-sm-val{font-size:11px;font-weight:700;color:#ffffff}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:140px 1fr;gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid var(--g200)}
+.exp-item:last-child{border-bottom:none}
+.exp-co-logo{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.co-badge{width:32px;height:32px;border-radius:6px;border:1px solid var(--g200);display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--white)}
+.co-badge img{width:100%;height:100%;object-fit:contain}
+.co-text-badge{font-size:7px;font-weight:700;color:var(--white);border-radius:6px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;padding:2px}
+.exp-co-name{font-size:11px;color:var(--g800);font-weight:600}
+.exp-years{font-size:20px;font-weight:700;color:var(--black);line-height:1}
+.exp-period{font-size:11px;color:var(--g600);margin-top:3px;line-height:1.5}
+.exp-role{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--black)}
+.exp-detail{font-size:13px;color:var(--g600);line-height:1.7}
+.exp-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ep{font-size:10px;background:var(--g100);border:1px solid var(--g200);border-radius:20px;padding:3px 9px;color:var(--g800)}
+
+/* TOOLS */
+.tg{margin-bottom:1rem}
+.tg-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--g600);margin-bottom:7px;font-weight:600}
+.tg-pills{display:flex;flex-wrap:wrap;gap:6px}
+.tp{font-size:12px;background:var(--white);border:1px solid var(--g200);border-radius:20px;padding:5px 14px;color:var(--g800)}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--g200)}
+.step:last-child{border-bottom:none}
+.step-num{font-size:11px;font-weight:700;color:var(--white);background:var(--black);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-t{font-size:14px;font-weight:700;margin-bottom:3px;color:var(--black)}
+.step-d{font-size:13px;color:var(--g600);line-height:1.65}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wc{border:1px solid var(--g200);border-radius:6px;padding:1rem}
+.wt{font-size:13px;font-weight:700;margin-bottom:4px;color:var(--black)}
+.wd{font-size:12px;color:var(--g600);line-height:1.65}
+
+/* CERTS */
+.cred-list{display:flex;flex-direction:column;gap:8px}
+.ci-cred{display:flex;justify-content:space-between;align-items:flex-start;padding:.875rem 1rem;border:1px solid var(--g200);border-radius:6px;gap:1rem}
+.ct{font-size:13px;font-weight:600;margin-bottom:2px;color:var(--black)}
+.cs{font-size:12px;color:var(--g600)}
+.cy{font-size:11px;color:var(--g400);white-space:nowrap;margin-top:2px}
+
+/* CONTACT */
+.contact-block{background:var(--black);border-radius:8px;padding:2.5rem 2rem}
+.contact-block .eyebrow{color:var(--g600)}
+.contact-block .sh{color:var(--white)}
+.contact-block .ssub{color:#b0aba4;margin-bottom:1.75rem}
+.ci-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.75rem}
+.citem{display:flex;align-items:center;gap:12px}
+.cicon{width:32px;height:32px;border:1px solid #2c2c2a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:var(--white)}
+.cl{font-size:10px;color:var(--g600);text-transform:uppercase;letter-spacing:.06em}
+.cv-contact{font-size:14px;color:var(--white)}
+.cv-contact a{color:var(--white);text-decoration:none}
+.btn-white{display:inline-block;background:var(--white);color:var(--black);border:none;border-radius:4px;padding:11px 26px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;font-family:var(--sans)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);border-radius:12px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;padding:2rem}
+.modal-close{float:right;font-size:20px;cursor:pointer;color:var(--g400);background:none;border:none;font-family:var(--sans);line-height:1}
+.modal-close:hover{color:var(--black)}
+.modal-title{font-family:var(--serif);font-size:22px;font-weight:normal;margin-bottom:.5rem;margin-top:1rem;color:var(--black)}
+.modal-sub{font-size:13px;color:var(--g600);margin-bottom:1.25rem;line-height:1.75}
+.modal-tools{font-size:12px;color:var(--g400);margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--g200)}
+
+/* FOOTER */
+footer{padding:1.75rem 0 .5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.fn{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--g400)}
+.fnote{font-size:12px;color:var(--g400)}
+
+@media(max-width:560px){
+  .hero{grid-template-columns:1fr}
+  .photo-wrap{display:none}
+  .hero h1{font-size:26px}
+  .sg{grid-template-columns:1fr}
+  .sc.full{grid-column:1}
+  .why-grid{grid-template-columns:1fr}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .exp-item{grid-template-columns:1fr;gap:.5rem}
+  .portfolio-grid{grid-template-columns:1fr}
+  .trust-bar{flex-wrap:wrap}
+  .trust-item{min-width:45%;border-right:none;margin-right:0;padding-right:0}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Nena Cardenas</div>
+  <div class="nav-links">
+    <a class="btn-out" href="https://wa.me/639164395425">WhatsApp</a>
+    <a class="btn-blk" href="mailto:nenacrdnas@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Virtual Assistant · E-commerce & Business Operations</div>
+    <h1>6 years of real operations work, <em>available to your business.</em></h1>
+    <p class="hero-sub">I'm Nena — a detail-oriented operations specialist with a background spanning e-commerce key account management, sales data reporting, admin support, and AI-assisted workflows. I step in and get to work without a lengthy ramp-up.</p>
+    <div class="hero-actions">
+      <a class="btn-blk" href="mailto:nenacrdnas@gmail.com">Work with me</a>
+      <a class="btn-out" href="https://wa.me/639164395425">Message on WhatsApp</a>
+    </div>
+  </div>
+  <div class="photo-wrap">
+    <img class="hero-photo" src="data:image/jpeg;base64,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" alt="Nena Cardenas">
+    <div class="photo-caption">Nena Cardenas</div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-num">6+</div><div class="trust-label">Years experience</div></div>
+  <div class="trust-item"><div class="trust-num">40+</div><div class="trust-label">Branches supported</div></div>
+  <div class="trust-item"><div class="trust-num">99%</div><div class="trust-label">Data accuracy</div></div>
+  <div class="trust-item"><div class="trust-num">5</div><div class="trust-label">Platforms managed</div></div>
+</div>
+
+<!-- SERVICES -->
+<section>
+  <div class="eyebrow">What I offer</div>
+  <div class="sh">Built from years inside actual operations — not templates.</div>
+  <p class="ssub">Every service maps to something I've done in a live business environment, with measurable results.</p>
+  <div class="sg">
+    <div class="sc feat">
+      <div class="snum">01 · Top service</div>
+      <div class="stitle">E-commerce Operations & Account Management</div>
+      <div class="sdesc">Online store management across Shopee, Lazada, Grabmart, and Facebook. Product uploads, inventory monitoring, pricing management, promotional campaigns, and platform troubleshooting.</div>
+      <span class="sbadge">3 yrs · Shopee · Lazada · Facebook</span>
+      <div class="sex">e.g. Managed 5+ online store accounts — uploaded 30 products/month, maintained 98% stock accuracy, and boosted promo-period sales by 22% through campaign coordination.</div>
+    </div>
+    <div class="sc">
+      <div class="snum">02 · Unique edge</div>
+      <div class="stitle">Sales Data Reporting & Dashboard Management</div>
+      <div class="sdesc">End-to-end data work: collection, cleaning, consolidation, and reporting. Builds dashboards in Google Sheets or Power BI that give real-time visibility — not just raw numbers.</div>
+      <span class="sbadge">2+ yrs · Power BI · Google Sheets</span>
+      <div class="sex">e.g. Built and maintained a live sales dashboard for 40+ branches at ZureRx — 99% data accuracy, supporting a 15% improvement in forecast accuracy.</div>
+    </div>
+    <div class="sc">
+      <div class="snum">03</div>
+      <div class="stitle">AI-Assisted Research & Business Reporting</div>
+      <div class="sdesc">Market research, competitor analysis, and business review preparation — accelerated using Claude and ChatGPT. Output is decision-ready, not just raw data dumps.</div>
+      <span class="sbadge">AI-forward · Certified VA</span>
+      <div class="sex">e.g. Conducted brand and trend analysis that improved market trend accuracy by 30%, producing structured business reviews for quarterly planning.</div>
+    </div>
+    <div class="sc">
+      <div class="snum">04</div>
+      <div class="stitle">Admin, Scheduling & Document Support</div>
+      <div class="sdesc">Calendar and inbox management, document preparation, sales invoicing, purchase order coordination, and file organization. All output is professional and client-ready.</div>
+      <span class="sbadge">6 yrs · Google Workspace · MS Office</span>
+      <div class="sex">e.g. Processed 20–30 sales invoices daily at 99% accuracy, managed correspondence, and reduced file retrieval time by 30%.</div>
+    </div>
+    <div class="sc full">
+      <div class="snum">05 · Bonus capability</div>
+      <div class="stitle">Marketing Support & Promotional Campaign Coordination</div>
+      <div class="sdesc">Promotional work plan creation, campaign brief coordination with marketing teams, creative execution review, and performance metric analysis — supported by hands-on experience with Facebook Ads Manager and Canva.</div>
+      <span class="sbadge">Facebook Ads · Canva · Campaign Planning</span>
+      <div class="sex">e.g. Designed and implemented promotional campaigns at Be Global that increased promotional effectiveness by 40% and boosted overall sales by 68%.</div>
+    </div>
+  </div>
+  <div class="metrics">
+    <div class="mc"><div class="mnum">68%</div><div class="mlabel">Sales increase from campaigns</div></div>
+    <div class="mc"><div class="mnum">40%</div><div class="mlabel">Promo effectiveness gain</div></div>
+    <div class="mc"><div class="mnum">30%</div><div class="mlabel">Reporting efficiency gain</div></div>
+    <div class="mc"><div class="mnum">99%</div><div class="mlabel">Data accuracy maintained</div></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+  <div class="eyebrow">Sample work</div>
+  <div class="sh">What working with me looks like.</div>
+  <p class="ssub">Representative samples of the type of work I deliver — the tools, formats, and outputs clients actually receive. Click any card to see a larger view.</p>
+  <div class="portfolio-tabs">
+    <button class="ptab active" onclick="filterPortfolio('all',this)">All work</button>
+    <button class="ptab" onclick="filterPortfolio('data',this)">Data & Reports</button>
+    <button class="ptab" onclick="filterPortfolio('ecomm',this)">E-commerce</button>
+    <button class="ptab" onclick="filterPortfolio('admin',this)">Admin</button>
+    <button class="ptab" onclick="filterPortfolio('marketing',this)">Marketing</button>
+  </div>
+  <div class="portfolio-grid" id="portfolioGrid">
+    <div class="pcard" data-cat="data" onclick="openModal('modal-dashboard')">
+      <div class="pcard-img">
+        <div class="db-mock">
+          <div class="db-row">
+            <div class="db-stat"><div class="db-stat-n">₱2.4M</div><div class="db-stat-l">Total Sales MTD</div></div>
+            <div class="db-stat"><div class="db-stat-n">40</div><div class="db-stat-l">Active Branches</div></div>
+            <div class="db-stat"><div class="db-stat-n">99%</div><div class="db-stat-l">Data Accuracy</div></div>
+          </div>
+          <div class="db-bar-wrap">
+            <div class="db-bar-label">Monthly branch sales (top 6)</div>
+            <div class="db-bars">
+              <div class="db-bar" style="height:80%;background:#0b0b0b"></div>
+              <div class="db-bar" style="height:65%;background:#6b6760"></div>
+              <div class="db-bar" style="height:90%;background:#0b0b0b"></div>
+              <div class="db-bar" style="height:55%;background:#a8a49e"></div>
+              <div class="db-bar" style="height:70%;background:#6b6760"></div>
+              <div class="db-bar" style="height:45%;background:#a8a49e"></div>
+            </div>
+            <div class="db-bar-x"><div class="db-bar-xl">NCR1</div><div class="db-bar-xl">NCR2</div><div class="db-bar-xl">CEB</div><div class="db-bar-xl">DAV</div><div class="db-bar-xl">ILO</div><div class="db-bar-xl">BAG</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Sales Dashboard — Multi-Branch</div>
+        <div class="pcard-desc">Real-time Google Sheets / Power BI dashboard tracking branch performance across 40+ locations.</div>
+        <div class="pcard-tag">Data & Reporting · Power BI · Google Sheets</div>
+      </div>
+    </div>
+
+    <div class="pcard" data-cat="ecomm" onclick="openModal('modal-listing')">
+      <div class="pcard-img">
+        <div class="pl-mock">
+          <div style="font-size:9px;font-weight:700;color:var(--black);margin-bottom:6px">Product Listings — Active Store</div>
+          <div class="pl-grid">
+            <div class="pl-item"><div class="pl-img">🧴</div><div class="pl-name">Vitamin C Serum 30ml</div><div class="pl-price">₱299</div><div class="pl-stock">Stock: 245</div><div class="pl-badge">Active</div></div>
+            <div class="pl-item"><div class="pl-img">💊</div><div class="pl-name">Omega-3 Fish Oil 60s</div><div class="pl-price">₱450</div><div class="pl-stock">Stock: 88</div><div class="pl-badge">Active</div></div>
+            <div class="pl-item"><div class="pl-img">🌿</div><div class="pl-name">Collagen Powder 200g</div><div class="pl-price">₱890</div><div class="pl-stock">Stock: 12</div><div class="pl-badge warn">Low stock</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Product Listing & Inventory Management</div>
+        <div class="pcard-desc">Uploaded and managed 30+ product listings/month with stock monitoring and low-stock alerts.</div>
+        <div class="pcard-tag">E-commerce · Shopee · Lazada · Inventory</div>
+      </div>
+    </div>
+
+    <div class="pcard" data-cat="admin" onclick="openModal('modal-email')">
+      <div class="pcard-img">
+        <div class="em-mock">
+          <div style="font-size:9px;font-weight:700;color:var(--black);margin-bottom:5px;display:flex;justify-content:space-between"><span>Inbox — Managed & Triaged</span><span style="color:var(--g600)">Today</span></div>
+          <div class="em-list">
+            <div class="em-row"><div class="em-dot" style="background:#ef4444"></div><div class="em-from">Supplier A</div><div class="em-subject">Re: PO#2847 — delivery delay</div><div class="em-tag urgent">Urgent</div><div class="em-time">8:12am</div></div>
+            <div class="em-row"><div class="em-dot" style="background:#a8a49e"></div><div class="em-from">CEO Office</div><div class="em-subject">Confirm board meeting Tue 2pm</div><div class="em-tag done">Replied</div><div class="em-time">9:04am</div></div>
+            <div class="em-row"><div class="em-dot" style="background:#f59e0b"></div><div class="em-from">Key Account</div><div class="em-subject">Monthly sales report — Q3</div><div class="em-tag follow">Follow up</div><div class="em-time">10:30am</div></div>
+            <div class="em-row"><div class="em-dot" style="background:#a8a49e"></div><div class="em-from">HR Team</div><div class="em-subject">Attendance sheet — October</div><div class="em-tag done">Filed</div><div class="em-time">11:15am</div></div>
+            <div class="em-row"><div class="em-dot" style="background:#a8a49e"></div><div class="em-from">Marketing</div><div class="em-subject">Promo brief for 11.11 campaign</div><div class="em-tag done">Forwarded</div><div class="em-time">1:02pm</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Inbox Triage & Email Management</div>
+        <div class="pcard-desc">Priority labeling, response drafting, follow-up tracking, and daily inbox management.</div>
+        <div class="pcard-tag">Admin · Email Management · Scheduling</div>
+      </div>
+    </div>
+
+    <div class="pcard" data-cat="data" onclick="openModal('modal-report')">
+      <div class="pcard-img">
+        <div class="rp-mock">
+          <div class="rp-header"><div class="rp-title-text">Weekly Sales Report — W42 2024</div><div class="rp-date">Oct 14–18, 2024</div></div>
+          <div class="rp-kpis">
+            <div class="rp-kpi"><div class="rp-kpi-n">₱3.2M</div><div class="rp-kpi-l">Total Revenue</div><div class="rp-trend">▲ 12% vs last wk</div></div>
+            <div class="rp-kpi"><div class="rp-kpi-n">1,847</div><div class="rp-kpi-l">Orders</div><div class="rp-trend">▲ 8%</div></div>
+            <div class="rp-kpi"><div class="rp-kpi-n">98.4%</div><div class="rp-kpi-l">Fulfillment</div><div class="rp-trend">▲ 0.4%</div></div>
+          </div>
+          <table class="rp-table">
+            <tr><th>Branch</th><th>Sales</th><th>vs Target</th><th>Status</th></tr>
+            <tr><td>NCR Central</td><td>₱820K</td><td style="color:#166534;font-weight:700">+15%</td><td style="color:#166534;font-weight:700">✓ Met</td></tr>
+            <tr><td>Cebu Main</td><td>₱640K</td><td style="color:#166534;font-weight:700">+9%</td><td style="color:#166534;font-weight:700">✓ Met</td></tr>
+            <tr><td>Davao</td><td>₱480K</td><td style="color:#991b1b;font-weight:700">-3%</td><td style="color:#991b1b;font-weight:700">⚠ Below</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Weekly / Monthly Sales Report</div>
+        <div class="pcard-desc">Consolidated sales reports with KPIs, branch performance tables, and trend analysis.</div>
+        <div class="pcard-tag">Data & Reporting · Sales Analysis · Google Sheets</div>
+      </div>
+    </div>
+
+    <div class="pcard" data-cat="ecomm" onclick="openModal('modal-spreadsheet')">
+      <div class="pcard-img">
+        <div class="ss-mock">
+          <table class="ss-table">
+            <tr><th>SKU</th><th>Product Name</th><th>Platform</th><th>Stock</th><th>Sales MTD</th><th>Status</th></tr>
+            <tr><td>SKU-001</td><td>Vit C Serum 30ml</td><td>Shopee</td><td>245</td><td class="ss-green">1,204</td><td><span class="ss-badge">Active</span></td></tr>
+            <tr><td>SKU-002</td><td>Omega-3 60s</td><td>Lazada</td><td>88</td><td class="ss-green">876</td><td><span class="ss-badge">Active</span></td></tr>
+            <tr><td>SKU-003</td><td>Collagen 200g</td><td>Shopee</td><td class="ss-red">12</td><td class="ss-green">540</td><td><span class="ss-badge warn">Low Stock</span></td></tr>
+            <tr><td>SKU-004</td><td>Zinc + Vit D</td><td>Grabmart</td><td>310</td><td style="color:var(--g800)">389</td><td><span class="ss-badge">Active</span></td></tr>
+            <tr><td>SKU-005</td><td>Biotin Caps 30s</td><td>Facebook</td><td class="ss-red">5</td><td style="color:var(--g800)">201</td><td><span class="ss-badge warn">Reorder</span></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Inventory Tracking Spreadsheet</div>
+        <div class="pcard-desc">Multi-platform inventory tracker with stock alerts and reorder flags — updated daily.</div>
+        <div class="pcard-tag">E-commerce · Data Entry · Google Sheets</div>
+      </div>
+    </div>
+
+    <div class="pcard" data-cat="marketing" onclick="openModal('modal-campaign')">
+      <div class="pcard-img">
+        <div class="cv-mock">
+          <div class="cv-promo">
+            <div>
+              <div class="cv-promo-tag">11.11 Mega Sale · Campaign Asset</div>
+              <div class="cv-promo-h">Up to 70% OFF<br>Selected Products</div>
+              <div class="cv-promo-cta">Shop Now →</div>
+            </div>
+            <div style="text-align:right"><div class="cv-promo-price">70%</div><div class="cv-promo-sub">OFF storewide</div></div>
+          </div>
+          <div class="cv-small">
+            <div class="cv-sm-card"><div class="cv-sm-tag">Engagement</div><div class="cv-sm-val">▲ 22%</div></div>
+            <div class="cv-sm-card"><div class="cv-sm-tag">Sales Uplift</div><div class="cv-sm-val">▲ 68%</div></div>
+            <div class="cv-sm-card"><div class="cv-sm-tag">Promo Effect</div><div class="cv-sm-val">▲ 40%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-title">Promotional Campaign Coordination</div>
+        <div class="pcard-desc">Campaign planning, creative brief coordination, and performance tracking for platform sales events.</div>
+        <div class="pcard-tag">Marketing · Facebook Ads · Canva</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="eyebrow">Work history</div>
+  <div class="sh">Six years across e-commerce, sales operations, and admin.</div>
+  <p class="ssub">Full-time roles only — each one building directly on the last.</p>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-co-logo">
+          <div class="co-text-badge" style="background:#0ea5e9">ZureRx Drug</div>
+          <div class="exp-co-name">ZureRx Drug Corporation</div>
+        </div>
+        <div class="exp-years">2 yrs+</div>
+        <div class="exp-period">Apr 2023 – Present</div>
+      </div>
+      <div>
+        <div class="exp-role">Sales Admin</div>
+        <div class="exp-detail">Collected and compiled sales data across 40+ branches nationwide. Built and maintained live sales dashboards for management. Achieved 99% data accuracy through rigorous cleaning and validation. Identified process improvements that raised reporting efficiency by 30%.</div>
+        <div class="exp-pills"><span class="ep">Power BI</span><span class="ep">Google Sheets</span><span class="ep">Sales Dashboard</span><span class="ep">Tracc Accounting System</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-co-logo">
+          <div class="co-badge"><img src="https://beglobalecommercecorp.com/wp-content/uploads/2023/03/BGE-LOGO-COLORED-1-1-1.webp" alt="Be Global" onerror="this.parentNode.innerHTML='<div class=co-text-badge style=background:#7c3aed>Be Global</div>'"></div>
+          <div class="exp-co-name">Be Global E-commerce Corp.</div>
+        </div>
+        <div class="exp-years">~1 yr</div>
+        <div class="exp-period">Aug 2022 – Jan 2023</div>
+      </div>
+      <div>
+        <div class="exp-role">E-commerce Key Account Specialist</div>
+        <div class="exp-detail">Managed site-wide pricing, inventory allocation, and promotional campaigns. Recommended marketing initiatives that boosted overall sales by 68% against targets. Improved market trend analysis accuracy by 30%.</div>
+        <div class="exp-pills"><span class="ep">Anchanto EWMS</span><span class="ep">SelluSeller</span><span class="ep">Facebook Ads</span><span class="ep">Canva</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-co-logo">
+          <div class="co-text-badge" style="background:#16a34a">Life-strong Mktg</div>
+          <div class="exp-co-name">Lifestrong Marketing Inc.</div>
+        </div>
+        <div class="exp-years">~2 yrs</div>
+        <div class="exp-period">Mar 2020 – Jun 2022</div>
+      </div>
+      <div>
+        <div class="exp-role">E-commerce Associate → Customer Service → Key Account Specialist</div>
+        <div class="exp-detail">Progressed across three roles. Managed accounts on Shopee, Lazada, Grabmart, and Facebook — 30 new products/month, 98% stock accuracy, 20% overall online sales growth. Processed 100+ orders/day with 95–98% return resolution rates.</div>
+        <div class="exp-pills"><span class="ep">Shopee</span><span class="ep">Lazada</span><span class="ep">Grabmart</span><span class="ep">Customer Service</span><span class="ep">Inventory Management</span></div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-co-logo">
+          <div class="co-text-badge" style="background:#b45309">Chanbless Industrial</div>
+          <div class="exp-co-name">Chanbless Industrial Trading</div>
+        </div>
+        <div class="exp-years">~1 yr</div>
+        <div class="exp-period">Apr – Dec 2019</div>
+      </div>
+      <div>
+        <div class="exp-role">Secretary</div>
+        <div class="exp-detail">Handled calls, correspondence, and document organization. Created 20–30 sales invoices per day at 99% accuracy, produced sales quotations, and managed purchase order canvassing — securing 10 new POs/month and growing sales revenue by 12%.</div>
+        <div class="exp-pills"><span class="ep">MS Office</span><span class="ep">Invoicing</span><span class="ep">File Management</span><span class="ep">Written Communication</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section>
+  <div class="eyebrow">Tools & platforms</div>
+  <div class="sh">What I actually work in, day to day.</div>
+  <div style="margin-top:.75rem">
+    <div class="tg"><div class="tg-label">E-commerce platforms</div><div class="tg-pills"><span class="tp">Shopee</span><span class="tp">Lazada</span><span class="tp">Grabmart</span><span class="tp">Facebook Marketplace</span><span class="tp">Anchanto EWMS</span><span class="tp">SelluSeller</span></div></div>
+    <div class="tg"><div class="tg-label">Data & reporting</div><div class="tg-pills"><span class="tp">Google Sheets</span><span class="tp">Microsoft Excel</span><span class="tp">Power BI</span><span class="tp">Google Slides</span><span class="tp">MS PowerPoint</span><span class="tp">Tracc Accounting System</span></div></div>
+    <div class="tg"><div class="tg-label">Admin & communication</div><div class="tg-pills"><span class="tp">Gmail</span><span class="tp">Google Drive</span><span class="tp">Google Calendar</span><span class="tp">Microsoft Word</span><span class="tp">Google Docs</span></div></div>
+    <div class="tg"><div class="tg-label">Marketing & design</div><div class="tg-pills"><span class="tp">Facebook Ads Manager</span><span class="tp">Canva</span></div></div>
+    <div class="tg"><div class="tg-label">AI tools</div><div class="tg-pills"><span class="tp">Claude (Anthropic)</span><span class="tp">ChatGPT</span></div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="eyebrow">How we work together</div>
+  <div class="sh">Simple start. No lengthy onboarding.</div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div><div class="step-t">Send me a message</div><div class="step-d">Email or WhatsApp — describe what you need. No forms, no calls required to start.</div></div></div>
+    <div class="step"><div class="step-num">02</div><div><div class="step-t">Scope & fit check</div><div class="step-d">I'll reply within 24 hours to clarify scope, confirm fit, and outline how I'd approach the work.</div></div></div>
+    <div class="step"><div class="step-num">03</div><div><div class="step-t">Start working</div><div class="step-d">I plug into your existing tools and workflow. Built to adapt quickly — no weeks of setup needed.</div></div></div>
+    <div class="step"><div class="step-num">04</div><div><div class="step-t">Consistent updates</div><div class="step-d">Regular progress updates and a clear record of completed work. No chasing on your end.</div></div></div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section>
+  <div class="eyebrow">Why work with me</div>
+  <div class="sh">What separates me from a general VA.</div>
+  <p class="ssub">Most VAs offer scheduling and email. I bring six years of hands-on e-commerce and sales operations — with numbers to back it up.</p>
+  <div class="why-grid">
+    <div class="wc"><div class="wt">Real e-commerce background</div><div class="wd">Three years managing live accounts on Shopee, Lazada, Grabmart, and Facebook — including inventory, campaigns, and metrics reporting.</div></div>
+    <div class="wc"><div class="wt">Data work you can trust</div><div class="wd">99% data accuracy isn't a claim — it's a figure from my current role. Clean, validated data is a baseline I hold myself to.</div></div>
+    <div class="wc"><div class="wt">AI-assisted, not AI-dependent</div><div class="wd">I use Claude and ChatGPT to work faster and smarter — but judgment, quality checks, and communication are always mine.</div></div>
+    <div class="wc"><div class="wt">Results-oriented mindset</div><div class="wd">I track outcomes, not just tasks. My past roles show consistent, measurable improvements in accuracy, efficiency, and sales performance.</div></div>
+    <div class="wc"><div class="wt">Confidentiality maintained</div><div class="wd">Business data, pricing information, and internal reports are handled with full discretion. Always.</div></div>
+    <div class="wc"><div class="wt">Cross-industry adaptability</div><div class="wd">Pharmaceuticals, FMCG e-commerce, industrial trading — I've adapted across industries without skipping a beat.</div></div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section>
+  <div class="eyebrow">Education & certifications</div>
+  <div class="sh">Formal foundation, ongoing professional development.</div>
+  <div class="cred-list">
+    <div class="ci-cred"><div><div class="ct">Bachelor of Science in Office Administration</div><div class="cs">University of Caloocan City</div></div><div class="cy">2015 – 2019</div></div>
+    <div class="ci-cred"><div><div class="ct">General Virtual Assistant Mastermind Course</div><div class="cs">Virtual Assistant Mastermind</div></div><div class="cy">May 2024</div></div>
+    <div class="ci-cred"><div><div class="ct">Social Media Marketing Mastermind Course</div><div class="cs">Virtual Assistant Mastermind</div></div><div class="cy">Jun 2024</div></div>
+    <div class="ci-cred"><div><div class="ct">Facebook Ads: Crash Course</div><div class="cs">Virtual Assistant Mastermind</div></div><div class="cy">May 2024</div></div>
+    <div class="ci-cred"><div><div class="ct">Career Boost with Power BI</div><div class="cs">Exodus Experts · Credential ID 93108982</div></div><div class="cy">Jan 2024</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="border-bottom:none;padding-bottom:0">
+  <div class="contact-block">
+    <div class="eyebrow">Let's talk</div>
+    <div class="sh">Ready to discuss your work.</div>
+    <p class="ssub">Tell me what's taking up your time. I'll respond within 24 hours with a clear answer on how I can help.</p>
+    <div class="ci-list">
+      <div class="citem"><div class="cicon">✉</div><div><div class="cl">Email</div><div class="cv-contact"><a href="mailto:nenacrdnas@gmail.com">nenacrdnas@gmail.com</a></div></div></div>
+      <div class="citem"><div class="cicon">💬</div><div><div class="cl">WhatsApp</div><div class="cv-contact"><a href="https://wa.me/639164395425">+63 916 439 5425</a></div></div></div>
+      <div class="citem"><div class="cicon">in</div><div><div class="cl">LinkedIn</div><div class="cv-contact"><a href="https://www.linkedin.com/in/crdnsnens">linkedin.com/in/crdnsnens</a></div></div></div>
+    </div>
+    <a class="btn-white" href="mailto:nenacrdnas@gmail.com">Send me a message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fn">Nena Cardenas · Virtual Assistant</div>
+  <div class="fnote">Available for freelance · Caloocan City, Philippines</div>
+</footer>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-dashboard">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-dashboard')">✕</button>
+    <div class="modal-title">Sales Dashboard — Multi-Branch Tracking</div>
+    <p class="modal-sub">Built and maintained at ZureRx Drug Corporation, tracking real-time sales data across 40+ branches nationwide. Data cleaned to 99% accuracy with daily validation checks. Supported a 15% improvement in forecast accuracy and a 10% improvement in branch sales target attainment.</p>
+    <div class="modal-tools">Tools used: Power BI · Google Sheets · Tracc Accounting System · MS Excel</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-listing">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-listing')">✕</button>
+    <div class="modal-title">Product Listing & Inventory Management</div>
+    <p class="modal-sub">Managed active product listings across Shopee, Lazada, Grabmart, and Facebook simultaneously. Uploaded an average of 30 new products per month, monitored stock levels daily, and maintained 98% inventory accuracy. Set low-stock alerts and coordinated restocking — reducing out-of-stock incidents by 25%.</p>
+    <div class="modal-tools">Platforms: Shopee · Lazada · Grabmart · Facebook Marketplace · Anchanto EWMS · SelluSeller</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-email">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-email')">✕</button>
+    <div class="modal-title">Inbox Triage & Email Management</div>
+    <p class="modal-sub">Managed high-volume inboxes for managers and directors — triaging by priority, drafting responses, tracking follow-ups, and keeping communication organized. Maintained a 97%+ response rate within 24 hours. Organized incoming mail by urgency, filing, and action required so nothing falls through the cracks.</p>
+    <div class="modal-tools">Tools: Gmail · Google Calendar · Google Drive · Microsoft Outlook</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-report">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-report')">✕</button>
+    <div class="modal-title">Weekly / Monthly Sales Report</div>
+    <p class="modal-sub">Prepared and submitted weekly and monthly consolidated sales reports for key accounts management and branch investors. Reports included KPIs, branch performance tables, trend analysis, and actionable insights for strategic decision-making — contributing to a 15% improvement in forecast accuracy.</p>
+    <div class="modal-tools">Tools: Google Sheets · Power BI · MS Excel · Tracc Accounting System</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-spreadsheet">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-spreadsheet')">✕</button>
+    <div class="modal-title">Inventory Tracking Spreadsheet</div>
+    <p class="modal-sub">Built and maintained multi-platform inventory trackers — monitoring stock levels across Shopee, Lazada, Grabmart, and Facebook simultaneously. Included conditional formatting for low-stock alerts and reorder flags, reducing out-of-stock incidents by 25% and maintaining 98% stock accuracy at all times.</p>
+    <div class="modal-tools">Tools: Google Sheets · Microsoft Excel · Anchanto EWMS · SelluSeller</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-campaign">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-campaign')">✕</button>
+    <div class="modal-title">Promotional Campaign Coordination</div>
+    <p class="modal-sub">Planned and coordinated promotional campaigns for major e-commerce sales events (11.11, 12.12, Payday Sales). Created campaign briefs, coordinated with marketing on creatives in Canva, managed Facebook Ads, and tracked performance metrics. Campaigns supported at Be Global E-commerce increased promotional effectiveness by 40% and boosted overall sales by 68%.</p>
+    <div class="modal-tools">Tools: Canva · Facebook Ads Manager · Shopee/Lazada Campaign Manager · Google Sheets</div>
+  </div>
+</div>
+
+<script>
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', function(e) {
+    if (e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open'); document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+</body>
+</html>
